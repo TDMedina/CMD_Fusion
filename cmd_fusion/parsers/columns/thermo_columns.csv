@@ -1,0 +1,10 @@
+Thermo,Mutation,Type
+Thermo,Annotation,Variant_ID
+# Thermo,Annotation,COSMIC_NCBI
+Thermo,Annotation,COSMIC
+Thermo,Annotation,Oncomine_Gene_Class
+Thermo,Quality,Filter
+Thermo,Quality,Fusion_Imbalance
+Thermo,Quality,Strand_Balance
+Thermo,Coverage,Read_Counts
+Thermo,Coverage,Read_Counts_Per_Million

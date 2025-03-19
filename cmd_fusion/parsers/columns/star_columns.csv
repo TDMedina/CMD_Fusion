@@ -1,0 +1,22 @@
+STAR,JunctionReadCount,
+STAR,SpanningFragCount,
+STAR,est_J,
+STAR,est_S,
+STAR,SpliceType,
+STAR,LargeAnchorSupport,
+STAR,FFPM,
+STAR,BreakDinuc,a
+STAR,BreakEntropy,a
+STAR,BreakDinuc,b
+STAR,BreakEntropy,b
+# STAR,annots,
+STAR,CDSID,a
+STAR,CDSRANGE,a
+STAR,CDSID,b
+STAR,CDSRANGE,b
+STAR,PROT_FUSION_TYPE,
+# STAR,FUSION_MODEL,
+# STAR,FUSION_CDS,
+# STAR,FUSION_TRANSL,
+# STAR,PFAM,a
+# STAR,PFAM,b

@@ -1,0 +1,79 @@
+### General Columns ###
+General,Genes,a
+General,Genes,b
+General,Exons,a
+General,Exons,b
+General,Breakpoints,a
+General,Breakpoints,b
+General,FoundBy,
+
+### Thermo TSV Columns ###
+Thermo,Mutation,Type
+# Thermo,Annotation,Variant_ID
+# Thermo,Annotation,COSMIC_NCBI
+Thermo,Annotation,COSMIC
+Thermo,Annotation,Oncomine_Gene_Class
+Thermo,Quality,Filter
+# Thermo,Quality,Fusion_Imbalance
+# Thermo,Quality,Strand_Balance
+Thermo,Coverage,Read_Counts
+# Thermo,Coverage,Read_Counts_Per_Million
+
+### Thermo VCF Columns ###
+Thermo,READ_COUNT,
+# Thermo,RPM,
+# Thermo,NORM_COUNT,
+# Thermo,NORM_COUNT_TO_HK,
+Thermo,FUSION_DRIVER_GENE,
+Thermo,ANNOTATION,
+Thermo,PASS_REASON,
+
+### Arriba Columns ###
+# Arriba,strand,a
+# Arriba,strand,b
+Arriba,site,a
+Arriba,site,b
+Arriba,type,
+Arriba,split_reads,a
+Arriba,split_reads,b
+# Arriba,discordant_mates,
+# Arriba,coverage,a
+# Arriba,coverage,b
+Arriba,confidence,
+Arriba,reading_frame,
+# Arriba,tags,
+# Arriba,retained_protein_domains,
+# Arriba,closest_genomic_breakpoint,a
+# Arriba,closest_genomic_breakpoint,b
+# Arriba,transcript_id,a
+# Arriba,transcript_id,b
+# Arriba,direction,a
+# Arriba,direction,b
+# Arriba,filters,
+# Arriba,fusion_transcript,
+# Arriba,peptide_sequence,
+# Arriba,read_identifiers,
+
+### STARFusion Columns ###
+# STAR,JunctionReadCount,
+# STAR,SpanningFragCount,
+# STAR,est_J,
+# STAR,est_S,
+# STAR,SpliceType,
+# STAR,LargeAnchorSupport,
+# STAR,FFPM,
+# STAR,BreakDinuc,a
+# STAR,BreakEntropy,a
+# STAR,BreakDinuc,b
+# STAR,BreakEntropy,b
+# STAR,annots,
+# STAR,CDSID,a
+# STAR,CDSRANGE,a
+# STAR,CDSID,b
+# STAR,CDSRANGE,b
+STAR,PROT_FUSION_TYPE,
+# STAR,FUSION_MODEL,
+# STAR,FUSION_CDS,
+# STAR,FUSION_TRANSL,
+# STAR,PFAM,a
+# STAR,PFAM,b

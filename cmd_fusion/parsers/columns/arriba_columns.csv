@@ -1,0 +1,24 @@
+Arriba,strand,a
+Arriba,strand,b
+Arriba,site,a
+Arriba,site,b
+Arriba,type,
+Arriba,split_reads,a
+Arriba,split_reads,b
+Arriba,discordant_mates,
+Arriba,coverage,a
+Arriba,coverage,b
+Arriba,confidence,
+Arriba,reading_frame,
+Arriba,tags,
+Arriba,retained_protein_domains,
+Arriba,closest_genomic_breakpoint,a
+Arriba,closest_genomic_breakpoint,b
+Arriba,transcript_id,a
+Arriba,transcript_id,b
+Arriba,direction,a
+Arriba,direction,b
+Arriba,filters,
+# Arriba,fusion_transcript,
+# Arriba,peptide_sequence,
+# Arriba,read_identifiers,
