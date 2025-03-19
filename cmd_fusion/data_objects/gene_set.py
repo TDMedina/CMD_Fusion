@@ -10,7 +10,6 @@ import gzip
 import pickle
 import re
 
-# import mygene
 from tqdm import tqdm
 
 from cmd_fusion.utilities import _GENOME_ORDER, overlap, iterize
@@ -299,31 +298,6 @@ class GeneSet:
                 data.append(line)
         return data
 
-        #     data = infile.readlines()
-        # data = [line.decode().rstrip(";\n").split("\t")
-        #         for line in data]
-        # data = [line for line in data
-        #         if line[0].replace("chr", "", 1) in _GENOME_ORDER]
-        # if include is not None:
-        #     data = [line for line in data if line[2] in include]
-        # if exclude is not None:
-        #     data = [line for line in data if line[2] not in exclude]
-        #
-        # for line in data:
-        #     line[0] = line[0].lstrip("chr")
-        #     line[3] = int(line[3])
-        #     line[4] = int(line[4])
-        #     ids = dict()
-        #     for field in line[-1].split(";"):
-        #         key, val = field.strip().replace('"', "").split(" ", 1)
-        #         if key in ids:
-        #             if not isinstance(ids[key], list):
-        #                 ids[key] = [ids[key]]
-        #             ids[key].append(val)
-        #             continue
-        #         ids[key] = val
-        #     line[-1] = ids
-        # return data
 
     @staticmethod
     def make_annotation_objects(data):
@@ -419,83 +393,6 @@ class GeneSet:
         with open(pkl, "rb") as inpkl:
             geneset = pickle.load(inpkl)
         return geneset
-
-# def lookup_gene_symbols(symbol_list):
-#     mg = mygene.MyGeneInfo()
-#     results = mg.querymany(symbol_list, scopes="symbol",
-#                            species="human", fields="ensembl.gene")
-#     results_final = {}
-#     results_bad = {}
-#     results_none = {}
-#     results_multi = {}
-#     for result in results:
-#         query = result["query"]
-#         if "notfound" in result and result["notfound"]:
-#             results_none[query] = result
-#             continue
-#         if "ensembl" not in result:
-#             results_bad[query] = result
-#             continue
-#         if isinstance(result["ensembl"], list):
-#             results_multi[query] = result
-#             continue
-#         if query not in results_final:
-#             results_final[query] = result
-#             continue
-#         if result["_score"] > results_final[query]["_score"]:
-#             results_final[query] = result
-#     results = {"final": results_final, "multi": results_multi,
-#                "none": results_none, "bad": results_bad}
-#     return results
-
-
-# %% MyGene
-# def find_symbol_in_results(symbol, results):
-#     if symbol in results["final"]:
-#         return [results["final"][symbol]["ensembl"]["gene"]]
-#     if symbol in results["multi"]:
-#         return [gene["gene"] for gene in results["multi"][symbol]["ensembl"]]
-#     if symbol in results["bad"] or results["none"]:
-#         return None
-#
-#
-# def symbol_lookup_multi(mygene_instance, gene_symbols):
-#     results = mygene_instance.querymany(gene_symbols, scopes="symbol",
-#                                         species="human", fields="ensembl.gene")
-#     results_final = {}
-#     results_bad = {}
-#     results_none = {}
-#     results_multi = {}
-#     for result in results:
-#         query = result["query"]
-#         if "notfound" in result and result["notfound"]:
-#             results_none[query] = result
-#             continue
-#         if "ensembl" not in result:
-#             results_bad[query] = result
-#             continue
-#         if isinstance(result["ensembl"], list):
-#             results_multi[query] = result
-#             continue
-#         if query not in results_final:
-#             results_final[query] = result
-#             continue
-#         if result["_score"] > results_final[query]["_score"]:
-#             results_final[query] = result
-#     results = {"final": results_final, "multi": results_multi,
-#                "none": results_none, "bad": results_bad}
-#     return results
-#
-#
-# # TODO: Finish this to fix missing genes.
-# def symbol_relookup_missing(mygene_lookup, mygene_instance):
-#     missing = mygene_lookup["none"]
-#     results = {}
-#     for symbol in missing:
-#         result = mygene_instance.query(symbol, scope="symbol",
-#                                        species="human", fields="ensembl.gene")
-#         # ...
-#     return results
 
 
 @total_ordering
