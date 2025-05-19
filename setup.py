@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name="cmd_fusion",
@@ -7,7 +7,7 @@ setup(
     url="https://github.com/TDMedina/CMD_Fusion",
     author="T.D. Medina",
     author_email="tylerdanmedina@gmail.com",
-    packages=["cmd_fusion"],
+    packages=find_packages(),
     zip_safe=False,
     python_requires=">=3.10",
     install_requires=[
