@@ -7,23 +7,34 @@ from dash.exceptions import PreventUpdate
 import dash_bootstrap_components as dbc
 
 from cmd_fusion.data_objects.gene_set import GeneSet
+from cmd_fusion.dashboard.arguments import parse_dashboard_args
 from cmd_fusion.dashboard.general import head_layout
 from cmd_fusion.dashboard.data import (_read_default_cols, _load_json_table,
                                        _retrieve_cases, _read_display_names, _read_case)
 
 
-results_dir = "/home/tyler/CMD/demo/"
+args = parse_dashboard_args()
+case_dir = args["sample_dir"]
 
-geneset = files("cmd_fusion.data_objects").joinpath("geneset.pkl")
-geneset = GeneSet.read_pickle(str(geneset))
+print("Reading case files...")
+case_list = _retrieve_cases(case_dir)
 
+print("Reading gene set...")
+if ".pkl" in args["gtf"]:
+    geneset = GeneSet.read_pickle(args["gtf"])
+else:
+    geneset = GeneSet(args["gtf"])
+
+print("Reading column data...")
 display_names = _read_display_names()
 default_cols = _read_default_cols()
-tab_dict = {"overview_tab": default_cols, "thermo_tab": ["General", "Thermo"],
-            "arriba_tab": ["General", "Arriba"], "star_tab": ["General", "STAR"]}
-case_list = _retrieve_cases(results_dir)
+tab_dict = {"overview_tab": default_cols,
+            "thermo_tab": ["General", "Thermo"],
+            "arriba_tab": ["General", "Arriba"],
+            "star_tab": ["General", "STAR"]}
 
 
+print("Building app...")
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP, "assets/tabs.css"])
 app.title = "CMD Fusion Dashboard"
 app.layout = html.Div([
@@ -81,7 +92,7 @@ def load_case(case):
     if case is None:
         raise PreventUpdate
     case_id = html.H3(case)
-    case = _read_case(case, results_dir, geneset)
+    case = _read_case(case, case_dir, geneset)
     return case, "overview_tab", case_id
 
 
@@ -148,6 +159,5 @@ def download_view(clicks1, clicks2, table_json, tool, case_id):
                                f"{case_id}.fusion_dash{tool_str}.tsv",
                                sep="\t", index=True)
 
-
-if __name__ == "__main__":
-    app.run_server(debug=False)
+print("Running app...")
+app.run_server()
