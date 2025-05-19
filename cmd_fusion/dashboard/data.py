@@ -7,7 +7,10 @@ import yaml
 
 import pandas as pd
 
-from cmd_fusion.parsers import ThermoFusions, ArribaFusions, StarFusions, VCFFusions
+from cmd_fusion.parsers.thermo_ir import ThermoFusions
+from cmd_fusion.parsers.arriba import ArribaFusions
+from cmd_fusion.parsers.starfusion import StarFusions
+from cmd_fusion.parsers.cmd_vcf import VCFFusions
 from cmd_fusion.parsers.common import merge_all_results
 
 
