@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="cmd_fusion",
-    version="0.1.0",
+    version="0.1.1",
     description="Fusion results comparison dashboard.",
     url="https://github.com/TDMedina/CMD_Fusion",
     author="T.D. Medina",
