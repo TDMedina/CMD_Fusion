@@ -23,7 +23,7 @@ setup(
         ],
     entry_points={
         "console_scripts": [
-            "FusionDash = cmd_fusion.dashboard.__main__",
+            "FusionDash = cmd_fusion.dashboard.__main__:main",
             ]
         }
     )
