@@ -1,2 +1,2 @@
-include cmd_fusion/dashboard/assets/ *
-include cmd_fusion/parsers/columns/ *
+recursive-include cmd_fusion/dashboard/assets/ *
+recursive-include cmd_fusion/parsers/columns/ *
